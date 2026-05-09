@@ -4,20 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WAVE – Dominio Ilimitado</title>
-
-    <!-- ==================== PWA MANIFEST & META TAGS ==================== -->
-    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22WAVE%20-%20Dominio%20Ilimitado%22%2C%22short_name%22%3A%22WAVE%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a0015%22%2C%22theme_color%22%3A%22%239b30ff%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%3E%F0%9F%8C%8C%3C%2Ftext%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22100x100%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
-    <meta name="theme-color" content="#9b30ff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="WAVE">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
-
-    <!-- ==================== ESTILOS WAVE GOJO SATORU ==================== -->
     <style>
         :root {
             --gojo-purple: #9b30ff;
-            --gojo-deep-purple: #4b0082;
             --gojo-void: #0a0015;
             --gojo-blue: #4169e1;
             --gojo-light-blue: #7df9ff;
@@ -25,71 +14,16 @@
             --gojo-gray: #b0b0d0;
             --glass-bg: rgba(20, 10, 40, 0.65);
             --glass-border: rgba(155, 48, 255, 0.25);
-            --glow: 0 0 20px rgba(155, 48, 255, 0.5);
-            --glow-strong: 0 0 40px rgba(65, 105, 225, 0.7);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--gojo-void);
             color: var(--gojo-white);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(155, 48, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(65, 105, 225, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(125, 249, 255, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 10% 90%, rgba(155, 48, 255, 0.05) 0%, transparent 30%),
-                radial-gradient(circle at 90% 10%, rgba(65, 105, 225, 0.06) 0%, transparent 30%);
-            z-index: -1;
-            animation: voidPulse 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes voidPulse {
-            0% { opacity: 0.7; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
-        }
-
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .particle {
-            position: absolute;
-            background: var(--gojo-purple);
-            border-radius: 50%;
-            animation: float linear infinite;
-            opacity: 0;
-            box-shadow: 0 0 10px var(--gojo-purple), 0 0 30px var(--gojo-purple);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-10vh) translateX(100px) scale(1.5); opacity: 0; }
         }
 
         .header {
@@ -97,12 +31,346 @@
             top: 0;
             z-index: 1000;
             background: var(--glass-bg);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            backdrop-filter: blur(25px);
             border-bottom: 1px solid var(--glass-border);
             padding: 20px 40px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
+
+        .nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gojo-purple), var(--gojo-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 20px rgba(155, 48, 255, 0.5);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--gojo-light-blue), var(--gojo-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex: 1;
+            max-width: 500px;
+            min-width: 280px;
+        }
+
+        #busqueda {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--glass-border);
+            background: rgba(10, 0, 20, 0.6);
+            color: var(--gojo-white);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #busqueda:focus {
+            border-color: var(--gojo-purple);
+            box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gojo-purple), var(--gojo-blue));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(155, 48, 255, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            color: var(--gojo-white);
+        }
+
+        .filters {
+            max-width: 1400px;
+            margin: 20px auto 0;
+            padding: 0 40px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(155, 48, 255, 0.3);
+            background: transparent;
+            color: var(--gojo-gray);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn.active {
+            background: rgba(155, 48, 255, 0.3);
+            border-color: var(--gojo-purple);
+            color: var(--gojo-white);
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gojo-light-blue);
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .movie-poster {
+            aspect-ratio: 2/3;
+            overflow: hidden;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 12px;
+        }
+
+        .movie-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-year {
+            color: var(--gojo-gray);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .header, .filters, .main-container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">∞</div>
+                <span class="logo-text">WAVE</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="busqueda" placeholder="Buscar películas, series o anime...">
+                <button class="btn btn-primary" id="btnBuscar">🔮 Buscar</button>
+            </div>
+        </nav>
+        <div class="filters">
+            <button class="filter-btn active" data-tipo="all">🌀 Todo</button>
+            <button class="filter-btn" data-tipo="movie">🎬 Películas</button>
+            <button class="filter-btn" data-tipo="tv">📺 Series</button>
+            <button class="filter-btn" data-tipo="anime">🍥 Anime</button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <h2 class="section-title">✨ Tendencias</h2>
+        <div class="movies-grid" id="resultados"></div>
+    </main>
+
+    <script>
+        // ========== CONFIGURACIÓN ==========
+        const API_KEY = '020f35689666ce9f5150f3647cce6f82';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        const IMG_URL = 'https://image.tmdb.org/t/p/w342';
+
+        let filtroActual = 'all';
+
+        // ========== ELEMENTOS HTML ==========
+        const inputBusqueda = document.getElementById('busqueda');
+        const btnBuscar = document.getElementById('btnBuscar');
+        const contenedor = document.getElementById('resultados');
+        const filtros = document.querySelectorAll('.filter-btn');
+
+        // ========== EVENTOS ==========
+        btnBuscar.addEventListener('click', function() {
+            const query = inputBusqueda.value.trim();
+            if (query) buscar(query);
+        });
+
+        inputBusqueda.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = inputBusqueda.value.trim();
+                if (query) buscar(query);
+            }
+        });
+
+        filtros.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filtros.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                filtroActual = this.dataset.tipo;
+                
+                const query = inputBusqueda.value.trim();
+                if (query) {
+                    buscar(query);
+                } else {
+                    cargarTendencias();
+                }
+            });
+        });
+
+        // ========== FUNCIONES ==========
+        async function buscar(query) {
+            let endpoint;
+            
+            switch(filtroActual) {
+                case 'anime':
+                    endpoint = `/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(query + ' anime')}&language=es-MX`;
+                    break;
+                case 'movie':
+                    endpoint = `/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=es-MX`;
+                    break;
+                case 'tv':
+                    endpoint = `/search/tv?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=es-MX`;
+                    break;
+                default:
+                    endpoint = `/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(query)}&language=es-MX`;
+            }
+
+            try {
+                const response = await fetch(BASE_URL + endpoint);
+                const data = await response.json();
+                console.log('✅ Resultados obtenidos:', data.results.length, 'ítems');
+                mostrarResultados(data.results);
+            } catch (error) {
+                console.error('❌ Error:', error);
+                contenedor.innerHTML = '<p style="color:red;">Error al conectar con TMDb. Revisa tu conexión.</p>';
+            }
+        }
+
+        async function cargarTendencias() {
+            try {
+                const response = await fetch(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=es-MX`);
+                const data = await response.json();
+                console.log('✅ Tendencias cargadas:', data.results.length, 'ítems');
+                mostrarResultados(data.results.slice(0, 20));
+            } catch (error) {
+                console.error('❌ Error al cargar tendencias:', error);
+                contenedor.innerHTML = '<p style="color:red;">Error al cargar tendencias. ¿Tienes conexión a Internet?</p>';
+            }
+        }
+
+        function mostrarResultados(items) {
+            contenedor.innerHTML = '';
+
+            const filtradas = items.filter(item => {
+                if (!item.poster_path) return false;
+                if (item.media_type === 'person') return false;
+                return true;
+            });
+
+            if (filtradas.length === 0) {
+                contenedor.innerHTML = '<p style="color:var(--gojo-gray);">No se encontraron resultados 🌀</p>';
+                return;
+            }
+
+            filtradas.forEach(item => {
+                const titulo = item.title || item.name || 'Sin título';
+                const año = (item.release_date || item.first_air_date || '').split('-')[0];
+
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.innerHTML = `
+                    <div class="movie-poster">
+                        <img src="${IMG_URL + item.poster_path}" alt="${titulo}" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">${titulo}</div>
+                        <div class="movie-year">${año || 'Próximamente'}</div>
+                    </div>
+                `;
+                contenedor.appendChild(card);
+            });
+        }
+
+        // ========== INICIAR ==========
+        cargarTendencias();
+        console.log('🚀 WAVE iniciado correctamente');
+    </script>
+</body>
+</html>        }
 
         .nav {
             max-width: 1400px;
